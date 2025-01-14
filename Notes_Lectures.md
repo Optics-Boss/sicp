@@ -94,3 +94,46 @@ Conditionals
 		guess
 		(try (improve guess))))
 	(try 1))
+
+#Lecture 1B
+Substition Model
+
+Expressions
+- Numbers
+- Symbols
+- Lamda Expresions
+- Definitions
+- Conditionals
+- Combinations
+
+Substitution Rule
+To evaluate an application
+   Evaluate the operator to get procedure
+   Evaluate the operans to get arguments
+   Apply the procedure to the arguments
+   	 Copy the body of the procedure
+	 Substituting the arguments supplied
+	 for the formal parameters of the procedure
+	 Evaluate the resulting new body
+
+(SOS 3 4)
+(+ (SQ 3) (SQ 4))
+(+ (SQ 3) (* 4 4))
+(+ (* 3 3) (16))
+(+ 9 16)
+
+(IF <predicate>
+    <consiquent>
+    <alternative>)
+
+(DEFINE (+ x y)
+	(IF (= x 0)
+	y
+	(+ (-/+ x)
+
+(DEFINE (FIB N)
+	(IF (< N 2)
+	N
+	(+ (fib (- n 1))
+	   (fib (- n 2)))))
+
