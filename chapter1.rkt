@@ -59,3 +59,32 @@
 ;Lisp uses applicative order evaluation
 ;Normal order evaluation it will fully expand and then reduce.
 ;It will not evaluate the operands until their values are actually needed.
+
+;Exercise 1.6
+(define (sqrt-iter guess x)
+  (if(good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (< (abs(- (square guess) x)) 0.001))
+
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(sqrt 9)
+
+;You get an infinite loop. The parameters are calculated first and that causes an infinite loop.
+;So if the parameter is a function it will always execute that function first, before it goes to the body
+
+;Exercise 1.7
